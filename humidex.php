@@ -348,17 +348,17 @@ if (isset($postData['auto_loc']) || isset($postData['manual_loc'])) {
                           }
                           if (humidex >= 38 && humidex < 40) {
                               jQuery('#comment').text('Great discomfort; Avoid Exertion');
-                              jQuery('#info').append('<p id=\"extra\"/><strong>Only work with 15 minutes relief per hour should continue</strong><br/>- Provide 240 mL of cool (10-15°c) water every 20 minutes<br/>- Workers with symtoms should seek medical attention');
+                              jQuery('#info').append('<p id=\"extra\"/><strong>Only work with 15 minutes relief per hour should continue</strong><br/>- Provide 240 mL of cool (10-15ï¿½c) water every 20 minutes<br/>- Workers with symtoms should seek medical attention');
                               jQuery('#humidexInfo').css('background-color', '#ffaf00');
                           }
                           if (humidex >= 40 && humidex < 42) {
                               jQuery('#comment').text('Dangereous; Heat stroke possible');
-                              jQuery('#info').append('<p id=\"extra\"/><strong>Only work with 30 minutes relief per hour should continue</strong><br/>- Provide 240 mL of cool (10-15°c) water every 20 minutes<br/>- Workers with symtoms should seek medical attention');
+                              jQuery('#info').append('<p id=\"extra\"/><strong>Only work with 30 minutes relief per hour should continue</strong><br/>- Provide 240 mL of cool (10-15ï¿½c) water every 20 minutes<br/>- Workers with symtoms should seek medical attention');
                               jQuery('#humidexInfo').css('background-color', '#ff8f00');
                           }
                           if (humidex >= 42 && humidex < 45) {
                               jQuery('#comment').text('Dangereous; heat stroke possible');
-                              jQuery('#info').append('<p id=\"extra\"/><strong>Only work with 45 minutes relief per hour should continue</strong><br/>- Provide 240 mL of cool (10-15°c) water every 20 minutes<br/>- Workers with symtoms should seek medical attention');
+                              jQuery('#info').append('<p id=\"extra\"/><strong>Only work with 45 minutes relief per hour should continue</strong><br/>- Provide 240 mL of cool (10-15ï¿½c) water every 20 minutes<br/>- Workers with symtoms should seek medical attention');
                               jQuery('#humidexInfo').css('background-color', '#ff4f00');
                           }
                           if (humidex >= 45) {
@@ -472,6 +472,7 @@ if (isset($postData['auto_loc']) || isset($postData['manual_loc'])) {
 </head>
 <body>
   <div id='container'>
+  test
       <div id='body' style='margin:1em;width:100%' >
 
           <div class='frm_location' style='visibility:visible' >
@@ -494,7 +495,7 @@ if (isset($postData['auto_loc']) || isset($postData['manual_loc'])) {
           <div >
               <ul style='list-style-type: none;margin-right:1em;'>
                   <li style='padding-top:1em'>Location: <span id='location'></span></li>
-                  <li>Temperature: <span id='temp'></span>°c</p>
+                  <li>Temperature: <span id='temp'></span>ï¿½c</p>
                   <li>Humidity: <span id='humidity'></span>%</li>
                   <li>Humidex: <span id='humidex' class='bold'></span></li>
                   <div id='humidexInfo' style='padding: 1em;border-style:solid;border-width:medium;'>
@@ -509,7 +510,7 @@ if (isset($postData['auto_loc']) || isset($postData['manual_loc'])) {
               
               <p><span id='lastUpdate'></span></p>
               <?php
-                  //<!-– This is requered by the openweathermap.org licence conditions --> 
+                  //<!-ï¿½ This is requered by the openweathermap.org licence conditions --> 
                   //  <p>Weather data current as of <span id='lastUpdate'> (GMT+10) using the <a href='http://openweathermap.org'>openweathermap.org</a> api</span> </p> ?>
 </div>
       </div>
