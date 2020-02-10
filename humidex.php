@@ -472,7 +472,7 @@ if (isset($postData['auto_loc']) || isset($postData['manual_loc'])) {
 </head>
 <body>
   <div id='container'>
-  test
+  test 
       <div id='body' style='margin:1em;width:100%' >
 
           <div class='frm_location' style='visibility:visible' >
