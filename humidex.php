@@ -1,6 +1,6 @@
 <?php
 
-//TODO:
+//TODO: test
 // Use cookie to store option to automatically refresh, with refresh time
 //  - Can be used between sessions
 //  - Automatically disabled if location is automatically searched? or keep refreshing manual search?
