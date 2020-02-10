@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script type='text/javascript'>
+      function gotLocation(position) {
+        var lat, lon;
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        console.log('Getting data automatically');
+        getData();
+      }
+      
+      jQuery(document).ready(function(){
+        getLocation();
+      });
+
+      function getLocation(){
+        navigator.permissions.query({name: 'geolocation'}).then(function(permissions) {
+          if (permissions.state == 'prompt' || permissions.state == 'granted') {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(gotLocation);
+              jQuery('#frm_automatic').prop('disabled', false);
+              jQuery('#frm_automatic').css('visibility', 'visible');
+              jQuery('#frm_err').css('visibility', 'hidden');
+            } else {
+              jQuery('#frm_automatic').css('visibility', 'hidden');
+              jQuery('#frm_err').val('<strong>Geolocation is not supported by this browser.</strong>');
+              jQuery('#frm_automatic').prop('disabled', true);
+              jQuery('#frm_automatic').css('visibility', 'hidden');
+            }
+          } else {
+            jQuery('#frm_err').val('<strong>You need to allow location in your browser.</strong>');
+            jQuery('#frm_automatic').prop('disabled', true);
+            jQuery('#frm_automatic').css('visibility', 'hidden');
+          }
+        });
+      }
+      
+      function frm_onFocus(frm_input){
+        jQuery(frm_input).val('');
+        jQuery(frm_input).keyup(function() {
+          if (jQuery(frm_input).val() == '') {
+            jQuery('.enableOnInput').prop('disabled', true);
+          } else {
+            jQuery('.enableOnInput').prop('disabled', false);
+          }
+        });
+        jQuery(frm_input).focusout(function() {
+          if (jQuery(frm_input).val() == '') 
+            jQuery(frm_input).val('Enter data');
+        });
+      }
+      function getData(){
+        console.log('got data');
+      }
+      function verifyInput(){
+        var frm_loc = jQuery('#frm_loc').val();
+        var error = true;
+        var isValid = true
+        if (isValid)
+          if (frm_loc != 'Enter data'){
+            error = false;
+            console.log('Getting data manually');
+            getData();
+          }
+        if (error)
+          jQuery('#frm_err').css('visibility', 'visible');
+        else
+          jQuery('#frm_err').css('visibility', 'hidden'); 
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit='return verifyInput();'>
+      <input id='frm_loc' type='text' value='Enter data' onfocus='frm_onFocus(this)' onfocousout='frm_focusOut(this)'/>
+      <span id='frm_err' style='color:red;visibility:hidden;'><strong>That is not a valid data</strong></span>
+      <p>
+        <input class='enableOnInput' type='submit' disabled='disabled' value='Submit' >
+        
+      </p>
+    </form>
+    <button id='frm_automatic' onClick='getLocation();'>Get Automatically</button>
+  </body>
+</html>
